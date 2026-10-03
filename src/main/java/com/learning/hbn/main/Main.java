@@ -1,27 +1,18 @@
 package com.learning.hbn.main;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
+import com.learning.hbn.configuration.HibernateConfiguration;
 import com.learning.hbn.entity.Employee;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		Employee emp1 = new Employee(1, "Kunal Chawla", "male", 98000);
+		Employee emp1 = new Employee("Yogesh Chawla", "male", 98000);
 
-//		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-//		
-//		SessionFactory sessionFactory = cfg.buildSessionFactory();
-//		
-//		Session session = sessionFactory.openSession();
-
-		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfgg.xml").buildSessionFactory();
-
-		Session session = sessionFactory.openSession();
+		Session session = HibernateConfiguration.getSessionFactory().openSession();
 
 		Transaction transaction = session.beginTransaction();
 

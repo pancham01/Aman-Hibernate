@@ -1,18 +1,24 @@
 package com.learning.hbn.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Employee {
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String name,gender;
+	private String name, gender;
 	private long salary;
-	
+
 	public Employee() {
 		super();
 	}
 
-	public Employee(int id, String name, String gender, long salary) {
-		super();
-		this.id = id;
+	public Employee(String name, String gender, long salary) {
 		this.name = name;
 		this.gender = gender;
 		this.salary = salary;

@@ -6,9 +6,11 @@
 
 <hibernate-mapping>
 
-	<class name="com.learning.hbn.entity.Employee">
-		<id name="id" />
-		<property name="name" />
+	<class name="com.learning.hbn.entity.Employee" table="empp">
+		<id name="id">
+			<generator class="identity" />
+		</id>
+		<property name="name" column="empName"/>
 		<property name="gender" />
 		<property name="salary" />
 	</class>
