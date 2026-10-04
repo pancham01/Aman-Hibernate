@@ -11,16 +11,10 @@ public class Main {
 	public static void main(String[] args) {
 
 		Employee emp1 = new Employee("Yogesh Chawla", "male", 98000);
-
 		Session session = HibernateConfiguration.getSessionFactory().openSession();
-
 		Transaction transaction = session.beginTransaction();
-
 //		session.persist(emp1);
-//
 //		transaction.commit();
-
-		
 		Employee employee = session.find(Employee.class, 111);
 //		Employee employee2 = new Employee();
 //		session.load(employee2, 11);

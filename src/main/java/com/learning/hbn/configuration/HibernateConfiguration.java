@@ -12,9 +12,7 @@ import org.hibernate.cfg.Environment;
 public class HibernateConfiguration {
 
 	public static SessionFactory getSessionFactory() {
-
 		Properties properties = new Properties();
-		
 		properties.put(Environment.JAKARTA_JDBC_URL, "jdbc:mysql://localhost:3306/myjdbc");
 		properties.put(Environment.JAKARTA_JDBC_USER, "root");
 		properties.put(Environment.JAKARTA_JDBC_PASSWORD, "root");
@@ -22,11 +20,8 @@ public class HibernateConfiguration {
 		properties.put("hibernate.show_sql", "true");
 
 		StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().applySettings(properties).build();
-
 		Metadata metadata = new MetadataSources(ssr).addAnnotatedClass(com.learning.hbn.entity.Employee.class).getMetadataBuilder().build();
-		
 		return metadata.buildSessionFactory();
-
 	}
 
 }
