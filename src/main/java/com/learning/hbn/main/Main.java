@@ -16,10 +16,17 @@ public class Main {
 
 		Transaction transaction = session.beginTransaction();
 
-		session.persist(emp1);
+//		session.persist(emp1);
+//
+//		transaction.commit();
 
-		transaction.commit();
-
+		
+		Employee employee = session.find(Employee.class, 111);
+//		Employee employee2 = new Employee();
+//		session.load(employee2, 11);
+		
+		System.out.println(employee);
+		
 	}
 
 }
