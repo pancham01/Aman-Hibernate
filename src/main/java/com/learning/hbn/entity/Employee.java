@@ -1,10 +1,12 @@
 package com.learning.hbn.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Employee {
@@ -16,28 +18,29 @@ public class Employee {
 	private String gender;
 	private long salary;
 
-	@OneToOne
-	private Address address;
+	@OneToMany
+	private List<Address> address;
 	
 	
 	public Employee() {
 		super();
 	}
 
-	public Employee(String name, String gender, long salary, Address address) {
+	public Employee(String name, String gender, long salary, List<Address> address) {
 		this.name = name;
 		this.gender = gender;
 		this.salary = salary;
+		this.address=address;
 	}
 	
 	
 	
 
-	public Address getAddress() {
+	public List<Address> getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(List<Address> address) {
 		this.address = address;
 	}
 
