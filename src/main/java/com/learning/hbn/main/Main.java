@@ -13,11 +13,11 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Address add1 = new Address();
-		add1.setCity("Noida");
+		add1.setCity("Lucknow");
 		add1.setState("UP");
 
 		Employee emp1 = new Employee();
-		emp1.setName("Yogesh");
+		emp1.setName("Ashish");
 		emp1.setGender("Male");
 		emp1.setSalary(90000);
 		emp1.setAddress(add1);
@@ -28,7 +28,6 @@ public class Main {
 		
 		
 		session.persist(emp1);
-		session.persist(add1);
 		
 		
 		transaction.commit();
