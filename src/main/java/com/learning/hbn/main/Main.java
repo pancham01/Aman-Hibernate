@@ -26,13 +26,13 @@ public class Main {
 		Session session = HibernateConfiguration.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		
+//		session.persist(emp1);
+//		transaction.commit();
 		
-		session.persist(emp1);
+		Employee employee = session.find(Employee.class, 1);
 		
-		
-		transaction.commit();
-		
-		
+//		System.out.println(employee);
+		System.out.println(employee.getAddress());
 		
 	}
 
