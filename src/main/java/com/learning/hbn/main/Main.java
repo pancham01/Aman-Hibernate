@@ -15,7 +15,7 @@ public class Main {
 		Address add1 = new Address();
 		add1.setCity("Lucknow");
 		add1.setState("UP");
-
+		
 		Employee emp1 = new Employee();
 		emp1.setName("Ashish");
 		emp1.setGender("Male");
@@ -23,16 +23,26 @@ public class Main {
 		emp1.setAddress(add1);
 		
 		
+		add1.setEmployee(emp1);
+
+		
 		Session session = HibernateConfiguration.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		
-//		session.persist(emp1);
-//		transaction.commit();
+		session.persist(emp1);
+		session.persist(add1);
+		transaction.commit();
 		
-		Employee employee = session.find(Employee.class, 1);
-		
-//		System.out.println(employee);
+		Employee employee = session.find(Employee.class,1);
+		System.out.println(employee);
 		System.out.println(employee.getAddress());
+		
+		System.err.println("<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>");
+		
+		
+		Address address = session.find(Address.class, 1);
+		System.out.println(address);
+		System.out.println(address.getEmployee());
 		
 	}
 

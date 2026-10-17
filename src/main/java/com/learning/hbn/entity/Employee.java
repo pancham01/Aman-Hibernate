@@ -1,11 +1,9 @@
 package com.learning.hbn.entity;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -18,8 +16,7 @@ public class Employee {
 	private String gender;
 	private long salary;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "add_id")
+	@OneToOne
 	private Address address;
 	
 	
