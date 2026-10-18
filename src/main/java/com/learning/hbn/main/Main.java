@@ -40,16 +40,35 @@ public class Main {
 		emp1.setAddress(listOfAdd);
 		
 		
-
+		add1.setEmployee(emp1);
+		add2.setEmployee(emp1);
+		add3.setEmployee(emp1);
 		
 		Session session = HibernateConfiguration.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		
-		session.persist(emp1);
-		session.persist(add1);
-		session.persist(add2);
-		session.persist(add3);
-		transaction.commit();
+//		session.persist(emp1);
+//		session.persist(add1);
+//		session.persist(add2);
+//		session.persist(add3);
+//		transaction.commit();
+		
+		
+		Employee employee = session.find(Employee.class, 1);
+		System.out.println(employee);
+		
+		System.err.println("=======================");
+		
+		Address address1 = session.find(Address.class, 1);
+		Address address2 = session.find(Address.class, 2);
+		Address address3 = session.find(Address.class, 3);
+		
+		System.out.println(address1);
+		System.out.println(address1.getEmployee());
+		System.out.println(address2);
+		System.out.println(address2.getEmployee());
+		System.out.println(address3);
+		System.out.println(address3.getEmployee());
 		
 	}
 
